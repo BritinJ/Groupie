@@ -5,7 +5,7 @@ import * as Font from 'expo-font';
 
 
 /* Define the main functional component for the applicaiton. this is like the 'main' function */
-export default function App() {
+function Login() {
   //creates the fonts
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
@@ -51,7 +51,10 @@ export default function App() {
         </TouchableOpacity>
       </View>
      </View>
-     <TouchableOpacity style={styles.loginButton}>
+     <TouchableOpacity
+      style={styles.loginButton}
+      
+      >
             <Text>Login</Text>
       </TouchableOpacity>
       </View>
@@ -60,6 +63,7 @@ export default function App() {
   );
 }
 
+export default Login;
 
 //below is where all the styles are defined for the app components
 const styles = StyleSheet.create({

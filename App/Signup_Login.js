@@ -1,11 +1,13 @@
 import {TouchableOpacity, StyleSheet, Text, Image, SafeAreaView, View, TextInput, ImageBackground } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import * as Font from 'expo-font';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 /*  Import necessary components and libraries from their respective modules. found under node_modules */
 
 
 /* Define the main functional component for the applicaiton. this is like the 'main' function */
-export default function App() {
+function Signup_Login({navigation}) {
   //creates the fonts
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
@@ -32,12 +34,18 @@ export default function App() {
 
       <View style = {styles.Buttoncontainer}   /* the below is the container for buttons and theirselves */>
         <View style={styles.Inputrow}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+           style={styles.button}
+           onPress={() => navigation.navigate('Login')}
+           >
             <Text>Login</Text>
           </TouchableOpacity>
       </View>
       <View style={styles.Inputrow}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+         style={styles.button}
+         onPress={() => navigation.navigate('Signup_Screen')}
+         >
           <Text>Signup</Text>
         </TouchableOpacity>
       </View>
@@ -47,6 +55,7 @@ export default function App() {
   );
 }
 
+export default Signup_Login;
 
 //below is where all the styles are defined for the app components
 const styles = StyleSheet.create({

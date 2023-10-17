@@ -1,11 +1,13 @@
-import { StyleSheet, Text, Image, SafeAreaView, View, TextInput, ImageBackground } from 'react-native';
+import { TouchableOpacity,  StyleSheet, Text, Image, SafeAreaView, View, TextInput, ImageBackground } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import * as Font from 'expo-font';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 /*  Import necessary components and libraries from their respective modules. found under node_modules */
 
 
 /* Define the main functional component for the applicaiton. this is like the 'main' function */
-export default function App() {
+function Signup_Screen({navigation}) {
   //creates the fonts
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
@@ -52,12 +54,19 @@ export default function App() {
           <Text style={styles.InputLabel}> Password:</Text>
           <TextInput style = {styles.Textinput} defaultValue='pw'/>
       </View>
+      <TouchableOpacity
+         style={styles.button}
+         onPress={() => navigation.navigate('Signup_Screen')}
+         >
+          <Text>Register</Text>
+        </TouchableOpacity>
      </View>
     </ImageBackground>
   </View>
   );
 }
 
+export default Signup_Screen;
 
 //below is where all the styles are defined for the app components
 const styles = StyleSheet.create({
@@ -117,6 +126,17 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     marginRight: 10
-  }
+  },
+  button:{
+    //register css
+    height: 40,
+    marginTop: 60,
+    backgroundColor: 'gray',
+    width: 120,
+    paddingLeft: 2,
+    borderRadius: 50,
+    justifyContent: 'center', // Center horizontally
+    alignItems: 'center',     //center Vertically
+  },
   
 });
