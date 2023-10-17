@@ -1,28 +1,46 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, Image, SafeAreaView, View } from 'react-native';
-import React from 'react';
+import * as React from 'react';
 import * as Font from 'expo-font';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Signup_Login from './Signup_Login';
+import Signup_Screen from './Signup_Screen';
+import Login from './Login';
 /*  Import necessary components and libraries from their respective modules. found under node_modules */
 
-
-/* Define the main functional component for the applicaiton. this is like the 'main' function */
-export default function App() {
-
-  return (
-     <View style={styles.container} /* creates a container to hold stuff. like anything  */ >   
+function HomeScreen(){
+  return(
+    <View style={styles.container} /* creates a container to hold stuff. like anything  */ >   
       <Image source={require('../assets/background.png')}   style = {styles.bckgrnd} /* displays the background image */ />  
       <Text style = {styles.logo} /* displays the text  "Groupie" */>Groupie </Text>  
     </View>
+  )
+}
+
+const Stack = createNativeStackNavigator();
+
+/* Define the main functional component for the applicaiton. this is like the 'main' function */
+function App() {
+  return (
+    <NavigationContainer>{
+      <Stack.Navigator initialRouteName='Signup_Login'>
+        <Stack.Screen name="splash" component={HomeScreen} />
+        <Stack.Screen name="Signup_Login" component={Signup_Login} />
+        <Stack.Screen name="Signup_Screen" component={Signup_Screen} />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+}</NavigationContainer>
   );
 }
 
-
+export default App;
 //below is where all the styles are defined for the app components
 const styles = StyleSheet.create({
   //this is a styler for the main container
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'lightgray',
     alignItems: 'center',
     justifyContent: 'center',
   },
