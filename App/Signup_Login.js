@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Image, SafeAreaView, View, TextInput, ImageBackground } from 'react-native';
+import {TouchableOpacity, StyleSheet, Text, Image, SafeAreaView, View, TextInput, ImageBackground } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import * as Font from 'expo-font';
 /*  Import necessary components and libraries from their respective modules. found under node_modules */
@@ -16,7 +16,7 @@ export default function App() {
         //This is where custom fonts will go
         ArimoRegular: require('../assets/fonts/Arimo-Regular.ttf')
       });
-      console.log('custom font loaded:', Font.isLoaded('ArimoRegular'));
+      //console.log('custom font loaded:', Font.isLoaded('ArimoRegular'));
       setFontsLoaded(true);
     }
     loadFonts();
@@ -26,31 +26,20 @@ export default function App() {
   return (
      <View style={styles.container} /* creates a container to hold stuff. like anything  */ >   
       <ImageBackground source={require('../assets/background.png')}   style = {styles.bckgrnd} /* displays the background image */ >  
-      <Text style = {[styles.signup, {fontFamily: 'ArimoRegular'}]} /* displays the text  "Signup" */
-      
-      >Signup </Text> 
+      <Text style = {[styles.groupie]} /* displays the text  "Groupie" */
+      >Groupie </Text> 
       
 
-      <View style = {styles.inputcontainer}   /* the below is all of the props for input and their labels */>
+      <View style = {styles.Buttoncontainer}   /* the below is the container for buttons and theirselves */>
         <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel}>First Name:</Text>
-          <TextInput style = {styles.Textinput} defaultValue='fn'/>
+          <TouchableOpacity style={styles.button}>
+            <Text>Login</Text>
+          </TouchableOpacity>
       </View>
       <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel}>Last Name:</Text>
-          <TextInput style = {styles.Textinput} defaultValue='ln'/>
-      </View>
-      <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel} /* adding spaces instead of fixing CSS b/c lazy. apps hould only be vertical anyways */>         Email:</Text>
-          <TextInput style = {styles.Textinput} defaultValue='em'/>
-      </View>
-      <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel}>Username:</Text>
-          <TextInput style = {styles.Textinput} defaultValue='un'/>
-      </View>
-      <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel}> Password:</Text>
-          <TextInput style = {styles.Textinput} defaultValue='pw'/>
+        <TouchableOpacity style={styles.button}>
+          <Text>Signup</Text>
+        </TouchableOpacity>
       </View>
      </View>
     </ImageBackground>
@@ -76,7 +65,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   //below is the styling for the "Groupie" text
-  signup:{
+  groupie:{
     flex: 1,
     height: 700,
     flexShrink: 0,
@@ -88,35 +77,28 @@ const styles = StyleSheet.create({
     width: 'auto',
     position: 'absolute'
   },
-  inputcontainer:{
+  Buttoncontainer:{
     //this is the CSS for all the items text input boxes and their labels
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom:160 
+    marginBottom:190, 
   },
-  Textinput:{
-    //text input boxes CSS
+  button:{
+    //button css
     height: 40,
-    borderColor: 'white',
-    backgroundColor: 'white',
-    width: 190,
-    borderWidth: 1,
+    backgroundColor: 'gray',
+    width: 120,
     paddingLeft: 2,
-    borderRadius: 10,
-    border: 'solid'
+    borderRadius: 50,
+    justifyContent: 'center', // Center horizontally
+    alignItems: 'center',     //center Vertically
   },
   Inputrow:{
-    //this is what lets the text input and labels be in a row
+    //this is what lets the buttons be in a row
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 4
+    marginVertical: 15
   },
-  InputLabel:{
-    //this is the CSS for all of the labels
-    color: 'white',
-    fontSize: 18,
-    marginRight: 10
-  }
   
 });

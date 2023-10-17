@@ -16,7 +16,7 @@ export default function App() {
         //This is where custom fonts will go
         ArimoRegular: require('../assets/fonts/Arimo-Regular.ttf')
       });
-      console.log('custom font loaded:', Font.isLoaded('ArimoRegular'));
+      //console.log('custom font loaded:', Font.isLoaded('ArimoRegular'));
       setFontsLoaded(true);
     }
     loadFonts();
@@ -27,32 +27,27 @@ export default function App() {
      <View style={styles.container} /* creates a container to hold stuff. like anything  */ >   
       <ImageBackground source={require('../assets/background.png')}   style = {styles.bckgrnd} /* displays the background image */ >  
       <Text style = {[styles.signup, {fontFamily: 'ArimoRegular'}]} /* displays the text  "Signup" */
-      
-      >Signup </Text> 
+      >Login </Text> 
       
 
       <View style = {styles.inputcontainer}   /* the below is all of the props for input and their labels */>
         <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel}>First Name:</Text>
+          <Text style={styles.InputLabel}>UserName:</Text>
           <TextInput style = {styles.Textinput} defaultValue='fn'/>
       </View>
       <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel}>Last Name:</Text>
+          <Text style={styles.InputLabel}>Password:</Text>
           <TextInput style = {styles.Textinput} defaultValue='ln'/>
       </View>
       <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel} /* adding spaces instead of fixing CSS b/c lazy. apps hould only be vertical anyways */>         Email:</Text>
-          <TextInput style = {styles.Textinput} defaultValue='em'/>
-      </View>
-      <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel}>Username:</Text>
-          <TextInput style = {styles.Textinput} defaultValue='un'/>
-      </View>
-      <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel}> Password:</Text>
-          <TextInput style = {styles.Textinput} defaultValue='pw'/>
-      </View>
+          <Text style={styles.InputLabel}>Forgot Username:</Text>
+          <TextInput style = {styles.Textinput} defaultValue='ln'/>
      </View>
+     <View style={styles.Inputrow}>
+          <Text style={styles.InputLabel}>Forgot:</Text>
+          <TextInput style = {styles.Textinput} defaultValue='ln'/>
+      </View>
+      </View>
     </ImageBackground>
   </View>
   );
