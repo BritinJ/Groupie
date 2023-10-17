@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Image, SafeAreaView, View, TextInput, ImageBackground } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, Image, SafeAreaView, View, TextInput, ImageBackground } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import * as Font from 'expo-font';
 /*  Import necessary components and libraries from their respective modules. found under node_modules */
@@ -26,27 +26,31 @@ export default function App() {
   return (
      <View style={styles.container} /* creates a container to hold stuff. like anything  */ >   
       <ImageBackground source={require('../assets/background.png')}   style = {styles.bckgrnd} /* displays the background image */ >  
-      <Text style = {[styles.signup, {fontFamily: 'ArimoRegular'}]} /* displays the text  "Signup" */
+      <Text style = {[styles.login, {fontFamily: 'ArimoRegular'}]} /* displays the text  "Login" */
       >Login </Text> 
       
 
-      <View style = {styles.inputcontainer}   /* the below is all of the props for input and their labels */>
+      <View style = {styles.inputcontainer}   /* the below is all of the props for input, their labels, and the forgot buttons */>
         <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel}>UserName:</Text>
-          <TextInput style = {styles.Textinput} defaultValue='fn'/>
+          <Text style={styles.InputLabel}>Username: </Text>
+          <TextInput style = {styles.Textinput} defaultValue='un'/>
       </View>
       <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel}>Password:</Text>
-          <TextInput style = {styles.Textinput} defaultValue='ln'/>
+          <Text style={styles.InputLabel}> Password: </Text>
+          <TextInput style = {styles.Textinput} defaultValue='pw'/>
+      </View>
+      <View style = {styles.Buttoncontainer}   /* the below is the container for buttons and theirselves */>
+        <View style={styles.Inputrow}>
+          <TouchableOpacity style={styles.button}>
+            <Text>Forgot Username</Text>
+          </TouchableOpacity>
       </View>
       <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel}>Forgot Username:</Text>
-          <TextInput style = {styles.Textinput} defaultValue='ln'/>
+        <TouchableOpacity style={styles.button}>
+          <Text> Forgot Password</Text>
+        </TouchableOpacity>
+      </View>
      </View>
-     <View style={styles.Inputrow}>
-          <Text style={styles.InputLabel}>Forgot:</Text>
-          <TextInput style = {styles.Textinput} defaultValue='ln'/>
-      </View>
       </View>
     </ImageBackground>
   </View>
@@ -70,8 +74,8 @@ const styles = StyleSheet.create({
     width: 'auto',
     justifyContent: 'center'
   },
-  //below is the styling for the "Groupie" text
-  signup:{
+  //below is the styling for the "Login" text
+  login:{
     flex: 1,
     height: 700,
     flexShrink: 0,
@@ -90,17 +94,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom:160 
   },
-  Textinput:{
-    //text input boxes CSS
-    height: 40,
-    borderColor: 'white',
-    backgroundColor: 'white',
-    width: 190,
-    borderWidth: 1,
-    paddingLeft: 2,
-    borderRadius: 10,
-    border: 'solid'
-  },
   Inputrow:{
     //this is what lets the text input and labels be in a row
     flexDirection: 'row',
@@ -108,10 +101,22 @@ const styles = StyleSheet.create({
     marginVertical: 4
   },
   InputLabel:{
-    //this is the CSS for all of the labels
+    //this is the CSS for usernmane and password labels
     color: 'white',
     fontSize: 18,
     marginRight: 10
-  }
-  
+  },
+  Textinput:{
+    //text input boxes CSS
+    height: 40,
+    borderColor: 'white',
+    backgroundColor: 'white',
+    width: 190,
+    borderWidth: 1,
+    paddingLeft: 2
+  },
+  Buttoncontainer:{
+        //this is the CSS for the forgot buttons
+        marginLeft: 170
+  },
 });
