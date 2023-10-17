@@ -30,7 +30,7 @@ export default function App() {
       >Login </Text> 
       
 
-      <View style = {styles.inputcontainer}   /* the below is all of the props for input, their labels, and the forgot buttons */>
+      <View style = {styles.inputcontainer}   /* the below is all of the props for input, their labels, and the buttons */>
         <View style={styles.Inputrow}>
           <Text style={styles.InputLabel}>Username: </Text>
           <TextInput style = {styles.Textinput} defaultValue='un'/>
@@ -51,6 +51,9 @@ export default function App() {
         </TouchableOpacity>
       </View>
      </View>
+     <TouchableOpacity style={styles.loginButton}>
+            <Text>Login</Text>
+      </TouchableOpacity>
       </View>
     </ImageBackground>
   </View>
@@ -118,5 +121,16 @@ const styles = StyleSheet.create({
   Buttoncontainer:{
         //this is the CSS for the forgot buttons
         marginLeft: 170
+  },
+  loginButton:{
+    //the text not the box
+    height: 40,
+    backgroundColor: 'gray',
+    width: 120,
+    marginTop: 40,
+    paddingLeft: 2,
+    borderRadius: 50,
+    justifyContent: 'center', // Center horizontally
+    alignItems: 'center',     //center Vertically
   },
 });
