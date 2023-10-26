@@ -12,7 +12,7 @@ import Login from './Login';
 function HomeScreen(){
   return(
     <View style={styles.container} /* creates a container to hold stuff. like anything  */ >   
-      <Image source={require('../assets/background.png')}   style = {styles.bckgrnd} /* displays the background image */ />  
+      <Image source={require('../assets/Groupie_Logo.png')}   style = {styles.bckgrnd} /* displays the background image */ />  
       <Text style = {styles.logo} /* displays the text  "Groupie" */>Groupie </Text>  
     </View>
   )
