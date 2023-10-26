@@ -7,7 +7,7 @@ import * as Font from 'expo-font';
 /* Define the main functional component for the applicaiton. this is like the 'main' function */
 function Login() {
   //creates the fonts
-  const [fontsLoaded, setFontsLoaded] = useState(false);
+ /* const [fontsLoaded, setFontsLoaded] = useState(false);
 
   //This is fthe 'FontLoader Async' that took me forever to figure out. documentation should be clearer :/
   useEffect (()=> {
@@ -21,13 +21,12 @@ function Login() {
     }
     loadFonts();
   },[]);
-
+*/
 
   return (
      <View style={styles.container} /* creates a container to hold stuff. like anything  */ >   
       <ImageBackground source={require('../assets/background.png')}   style = {styles.bckgrnd} /* displays the background image */ >  
-      <Text style = {[styles.login, {fontFamily: 'ArimoRegular'}]} /* displays the text  "Login" */
-      >Login </Text> 
+      <Image source={require('../assets/Login.png')} style = {styles.login} /* displays the login*//>
       
 
       <View style = {styles.inputcontainer}   /* the below is all of the props for input, their labels, and the buttons */>
@@ -70,7 +69,7 @@ const styles = StyleSheet.create({
   //this is a styler for the main container
   container: {
     flex: 1,
-    backgroundColor: 'lightgray',
+    backgroundColor: '#7b9c98',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -81,18 +80,13 @@ const styles = StyleSheet.create({
     width: 'auto',
     justifyContent: 'center'
   },
-  //below is the styling for the "Login" text
+  //below is the styling for the "Login" image
   login:{
     flex: 1,
-    height: 700,
-    flexShrink: 0,
-    color: 'white',
-    fontSize: 70,
-    fontWeight: '700',
-    fontStyle: 'normal',
-    alignSelf: 'center',
+    alignSelf: 'stretch',
     width: 'auto',
-    position: 'absolute'
+    justifyContent: 'center',
+    objectFit: 'contain',
   },
   inputcontainer:{
     //this is the CSS for all the items text input boxes and their labels
