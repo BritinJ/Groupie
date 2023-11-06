@@ -1,11 +1,13 @@
 import { TouchableOpacity, StyleSheet, Text, Image, SafeAreaView, View, TextInput, ImageBackground } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import * as Font from 'expo-font';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 /*  Import necessary components and libraries from their respective modules. found under node_modules */
 
 
 /* Define the main functional component for the applicaiton. this is like the 'main' function */
-function Login() {
+function Login({navigation}) {
   //creates the fonts
  /* const [fontsLoaded, setFontsLoaded] = useState(false);
 
@@ -52,8 +54,9 @@ function Login() {
      </View>
      <TouchableOpacity
       style={styles.loginButton}
-      
+      onPress={() => navigation.navigate('MainContainer')}
       >
+        
             <Text>Login</Text>
       </TouchableOpacity>
       </View>
