@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 /* Define the main functional component for the applicaiton. this is like the 'main' function */
 function Signup_Login({navigation}) {
-  //creates the fonts
+ /* //creates the fonts
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   //This is fthe 'FontLoader Async' that took me forever to figure out. documentation should be clearer :/
@@ -24,13 +24,13 @@ function Signup_Login({navigation}) {
     loadFonts();
   },[]);
 
+  */
+
 
   return (
      <View style={styles.container} /* creates a container to hold stuff. like anything  */ >   
       <ImageBackground source={require('../assets/background.png')}   style = {styles.bckgrnd} /* displays the background image */ >  
-      <Text style = {[styles.groupie]} /* displays the text  "Groupie" */
-      >Groupie </Text> 
-      
+      <Image source={require('../assets/Groupie_Logo.png')} style = {styles.groupie} /* displays the logo*//>
 
       <View style = {styles.Buttoncontainer}   /* the below is the container for buttons and theirselves */>
         <View style={styles.Inputrow}>
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   //this is a styler for the main container
   container: {
     flex: 1,
-    backgroundColor: 'lightgray',
+    backgroundColor: '#7b9c98',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -73,25 +73,21 @@ const styles = StyleSheet.create({
     width: 'auto',
     justifyContent: 'center'
   },
-  //below is the styling for the "Groupie" text
+  //below is the styling for the "Groupie" logo
   groupie:{
     flex: 1,
-    height: 700,
-    flexShrink: 0,
-    color: 'white',
-    fontSize: 70,
-    fontWeight: '700',
-    fontStyle: 'normal',
-    alignSelf: 'center',
+    alignSelf: 'stretch',
     width: 'auto',
-    position: 'absolute'
+    justifyContent: 'center',
+    objectFit: 'contain',
+    marginTop: 70
   },
   Buttoncontainer:{
-    //this is the CSS for all the items text input boxes and their labels
+    //this is the CSS for all the buttons
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom:190, 
+    marginBottom:330, 
   },
   button:{
     //button css

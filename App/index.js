@@ -1,18 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, Image, SafeAreaView, View } from 'react-native';
 import * as React from 'react';
-import * as Font from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Signup_Login from './Signup_Login';
 import Signup_Screen from './Signup_Screen';
 import Login from './Login';
+import MainContainer from './AfterLogin/MainContainer';
+
 /*  Import necessary components and libraries from their respective modules. found under node_modules */
 
 function HomeScreen(){
   return(
     <View style={styles.container} /* creates a container to hold stuff. like anything  */ >   
-      <Image source={require('../assets/background.png')}   style = {styles.bckgrnd} /* displays the background image */ />  
+      <Image source={require('../assets/Groupie_Logo.png')}   style = {styles.bckgrnd} /* displays the background image */ />  
       <Text style = {styles.logo} /* displays the text  "Groupie" */>Groupie </Text>  
     </View>
   )
@@ -24,11 +25,19 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>{
-      <Stack.Navigator initialRouteName='Signup_Login'>
+      <Stack.Navigator initialRouteName='Signup_Login' 
+      
+      //removes the names of the screens, used for testing 
+      screenOptions={{
+        headerShown: false,
+      }}
+      
+    >
         <Stack.Screen name="splash" component={HomeScreen} />
         <Stack.Screen name="Signup_Login" component={Signup_Login} />
         <Stack.Screen name="Signup_Screen" component={Signup_Screen} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="MainContainer" component={MainContainer} />
       </Stack.Navigator>
 }</NavigationContainer>
   );

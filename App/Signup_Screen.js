@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 /* Define the main functional component for the applicaiton. this is like the 'main' function */
 function Signup_Screen({navigation}) {
-  //creates the fonts
+ /* //creates the fonts
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   //This is fthe 'FontLoader Async' that took me forever to figure out. documentation should be clearer :/
@@ -23,14 +23,13 @@ function Signup_Screen({navigation}) {
     }
     loadFonts();
   },[]);
+  */
 
 
   return (
      <View style={styles.container} /* creates a container to hold stuff. like anything  */ >   
       <ImageBackground source={require('../assets/background.png')}   style = {styles.bckgrnd} /* displays the background image */ >  
-      <Text style = {[styles.signup, {fontFamily: 'ArimoRegular'}]} /* displays the text  "Signup" */
-      
-      >Signup </Text> 
+      <Image source={require('../assets/Signup.png')} style = {styles.signup} /* displays the Signup*//>
       
 
       <View style = {styles.inputcontainer}   /* the below is all of the props for input and their labels */>
@@ -73,7 +72,7 @@ const styles = StyleSheet.create({
   //this is a styler for the main container
   container: {
     flex: 1,
-    backgroundColor: 'lightgray',
+    backgroundColor: '#7b9c98',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -84,18 +83,13 @@ const styles = StyleSheet.create({
     width: 'auto',
     justifyContent: 'center'
   },
-  //below is the styling for the "Groupie" text
+  //below is the styling for the "Signup" logo
   signup:{
     flex: 1,
-    height: 700,
-    flexShrink: 0,
-    color: 'white',
-    fontSize: 70,
-    fontWeight: '700',
-    fontStyle: 'normal',
-    alignSelf: 'center',
+    alignSelf: 'stretch',
     width: 'auto',
-    position: 'absolute'
+    justifyContent: 'center',
+    objectFit: 'contain',
   },
   inputcontainer:{
     //this is the CSS for all the items text input boxes and their labels
@@ -113,7 +107,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingLeft: 2,
     borderRadius: 10,
-    border: 'solid'
   },
   Inputrow:{
     //this is what lets the text input and labels be in a row
