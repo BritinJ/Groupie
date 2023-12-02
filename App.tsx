@@ -1,17 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import Login from './app/screens/Login';
 import Details from './app/screens/Details';
 import List from './app/screens/List';
 import { useEffect, useState } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { FIREBASE_AUTH } from './firebaseConfig';
 import Signup_Login from './app/screens/Signup_Login';
-import Signup_Screen from './app/screens/Signup_Screen';
-import LoginNew from './app/screens/LoginNew';
-import MainContainer from './app/screens/AfterLogin/MainContainer';
 
 const Stack = createNativeStackNavigator();
 
