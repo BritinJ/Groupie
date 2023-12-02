@@ -6,7 +6,6 @@ import List from './app/screens/List';
 import { useEffect, useState } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { FIREBASE_AUTH } from './firebaseConfig';
-import Signup_Login from './app/screens/Signup_Login';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,7 +48,7 @@ export default function App() {
         {user ? (
           <Stack.Screen name='Inside' component={InsideLayout} options={{headerShown: false}} />
         ) : (
-          <Stack.Screen name='Signup_Login' component={Signup_Login} options={{headerShown: false}} />
+          <Stack.Screen name='List' component={List} options={{headerShown: false}} />
         )}
       </Stack.Navigator>
     </NavigationContainer>
